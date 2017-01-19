@@ -2,7 +2,7 @@ runtime: php55
 api_version: 1
 
 handlers:
-- url: /
-  script: thankyou.html
 - url: /.*
   script: index.php
+- url: /
+  script: thankyou.html
