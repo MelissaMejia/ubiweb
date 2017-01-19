@@ -5,9 +5,8 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
-  </script>
-   
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+ </script>
     <style>
       html, body {
         height: 80%;
@@ -24,10 +23,14 @@
 function enviar() {
 var lati=$('#latitud').val();
 var longi=$('#longitud').val();
-$.ajax({
-url:"https://docs.google.com/forms/d/e/1FAIpQLScdgzvHl2aOTZCVFHrUR6CYcx766gBpMuZulBHsITup-S_W8Q/formResponse",data:{"entry_100794053":lati,"entry_94925917":longi},type:"POST",dataType:"xml",statusCode: {0:function() { window.location.replace("thankyou.html");},200:function(){window.location.replace("thankyou.html");}}
-});
-}
+if(lati== "" && longi==""){
+  alert("No se obtuvo tu ubicación");
+}else{
+  $.ajax({
+url:"https://docs.google.com/forms/d/e/1FAIpQLScdgzvHl2aOTZCVFHrUR6CYcx766gBpMuZulBHsITup-S_W8Q/formResponse",
+data:{"entry_100794053":lati,"entry_94925917":longi},type:"POST",dataType:"xml"});
+alert("Datos guardados");
+}}
 </script>
 </head>
 
@@ -96,3 +99,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     </script>
   </body>
 </html>
+  
